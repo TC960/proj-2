@@ -1,63 +1,202 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Visualization Gallery</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Data Visualization Gallery</h1>
-    <div class="writeup">
-        <h2>Propositions</h2>
-        <p><strong>For:</strong> North America's elderly dependency ratio has reached unsustainable crisis levels compared to historical trends.<br>
-        <strong>Counter:</strong> North America's elderly dependency ratio has NOT reached unsustainable crisis levels and is manageable</p>
-        <h2>Visualization Preference</h2>
-        <p>I am leaning toward the counter-proposition visualizations (Images 3 & 4) as they provide more complete context while using fewer deceptive techniques.</p>
-        <h2>Deceptive Techniques Used</h2>
-        <h3>Pro-Proposition Visualizations (Images 1 & 2)</h3>
+  <head>
+    <title>Project 2 Report</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Assignment 4</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>Mohak Akul Prakash</strong> — <em>mprakash@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: The global dependency levels on the elderly are balanced and not alarming</h2>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+
+        <figure>
+          <img src="vis1.png" alt="" />
+          <figcaption>Stable and balanced difference in Youth and Elderly Dependency levels over the years</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
         <ul>
-            <li>Alarmist title with emotionally charged language ("CRISIS")</li>
-            <li>Strategic color choices (red for 2020 data to signal danger)</li>
-            <li>Truncated y-axis beginning at ~15% instead of zero</li>
-            <li>Cherry-picked comparison years to maximize contrast</li>
-            <li>Narrow regional focus that excludes global context</li>
+          <li>Green color schemes to indicate a 'calming tone'</li>
+          <li>Full y axis to dim the effect of increasing trend</li>
+          <li>Make the grid inconspicuous to prevent easy comparison</li>
         </ul>
-        <h3>Counter-Proposition Visualizations (Images 3 & 4)</h3>
+      </section>
+
+      <section>
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img src="vis2.png" alt="" />
+          <figcaption>Alamring Decrease in youth dependency and Increase in elderly dependecy noticed!</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
         <ul>
-            <li>Stacked area/bar charts that visually minimize elderly dependency proportion</li>
-            <li>Youth dependency positioned to dominate visual space</li>
-            <li>Neutral title obscuring elderly dependency concern</li>
-            <li>Prominent black trend line directing attention to overall decrease</li>
-            <li>Full 60-year timeframe diluting recent acceleration</li>
+          <li>Added 2 y-axes to make it misleading</li>
+          <li>Expanded the left y-axis and truncated the right y-axis to make the decline effect more pronounced</li>
+          <li>Added an overall alarming red theme with annotations</li>
         </ul>
-    </div>
-    <div class="gallery-section">
-        <h2>Pro-Proposition Visualizations</h2>
-        <div class="gallery">
-            <div class="visualization">
-                <h3>Visualization 1</h3>
-                <img src="vis1.png" alt="Data Visualization 1" class="svg-image">
-            </div>
-            <div class="visualization">
-                <h3>Visualization 2</h3>
-                <img src="vis2.png" alt="Data Visualization 2" class="svg-image">
-            </div>
-        </div>
-    </div>
-    <hr>
-    <div class="gallery-section">
-        <h2>Counter-Proposition Visualizations</h2>
-        <div class="gallery">
-            <div class="visualization">
-                <h3>Visualization 3</h3>
-                <img src="vis3.png" alt="Data Visualization 3" class="svg-image">
-            </div>
-            <div class="visualization">
-                <h3>Visualization 4</h3>
-                <img src="vis4.png" alt="Data Visualization 4" class="svg-image">
-            </div>
-        </div>
-    </div>
-</body>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>Creating contrasting visualizations of global dependency ratios revealed how design choices powerfully shape data interpretation. While selecting the dataset for me was straightforward, the challenge lay in balancing persuasion with accuracy. Subtle decisions in color scheme (calming greens versus alarming reds), axis scaling (full versus truncated), and strategic annotations dramatically altered how related demographic trends were perceived. Most surprising was how effectively the dual-axis approach in the "against" visualization created alarm despite representing the same underlying data as the "for" visualization.
+        </p>
+        <p>This process has redefined ethical visualization for me as presenting data in ways that illuminate rather than obscure the truth, even when making persuasive arguments. Ethical analysis respects viewers' intelligence by avoiding manipulation through truncated axes, incompatible scales, or deceptive color schemes that exaggerate trends. It recognizes that visualization should enhance understanding rather than engineer predetermined reactions, particularly when communicating demographic shifts that affect policy decisions.
+        </p>
+        <p>
+        The boundary between acceptable persuasion and misleading visualization centers on transparency and intent. Acceptable persuasive choices emphasize patterns while maintaining data integrity through appropriate color emphasis and consistent scales. The ethical line is crossed when visualization techniques deliberately impede understanding—when the designer shifts from illuminating truth with emphasis to distorting reality through techniques that prevent accurate comparisons. Ultimately, ethical visualization maintains the viewer's agency to draw reasonable, informed conclusions about complex demographic trends, even when presented through a particular interpretive lens.</p>
+      </section>
+    </main>
+  </body>
 </html>

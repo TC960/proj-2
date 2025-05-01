@@ -1,105 +1,143 @@
+/* Minimalist CSS for Data Visualization Gallery */
+
+/* Base styles */
+:root {
+    --primary-color: #333;
+    --secondary-color: #666;
+    --accent-color: #2980b9;
+    --background-color: #fff;
+    --border-color: #eee;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--primary-color);
+    background-color: #f9f9f9;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
-    background-color: #f5f7fa;
+    padding: 2rem;
+}
+
+main {
+    background-color: var(--background-color);
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+    padding: 2rem;
 }
 
 h1 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
     text-align: center;
-    color: #2c3e50;
-    margin-bottom: 24px;
-    letter-spacing: 1px;
 }
 
+h2 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 1.5rem 0 1rem;
+    color: var(--primary-color);
+}
+
+h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 1rem 0 0.75rem;
+    color: var(--secondary-color);
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+ul {
+    list-style-type: none;
+    margin-bottom: 1.5rem;
+}
+
+li {
+    position: relative;
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+/* Layout components */
 .writeup {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
-    padding: 28px 32px 18px 32px;
-    margin-bottom: 36px;
-    border-left: 6px solid #2980b9;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
 }
-.writeup h2 {
-    color: #2980b9;
-    margin-top: 18px;
-    margin-bottom: 8px;
-}
-.writeup h3 {
-    color: #34495e;
-    margin-top: 14px;
-    margin-bottom: 6px;
-}
-.writeup ul {
-    margin-left: 20px;
-    margin-bottom: 10px;
-}
-.writeup p {
-    color: #444;
-    margin-bottom: 10px;
+
+.techniques-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
 }
 
 .gallery-section {
-    margin-bottom: 36px;
-}
-.gallery-section h2 {
-    color: #16a085;
-    margin-bottom: 18px;
-    text-align: left;
-    font-size: 1.3em;
-    letter-spacing: 0.5px;
-}
-
-hr {
-    border: none;
-    border-top: 2px solid #e1e4e8;
-    margin: 40px 0 32px 0;
+    margin-bottom: 3rem;
 }
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 24px;
-    margin-top: 0;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
 }
 
 .visualization {
-    background-color: #fff;
-    padding: 20px 18px 18px 18px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+    padding: 1rem;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    transition: box-shadow 0.2s;
-}
-.visualization:hover {
-    box-shadow: 0 4px 16px rgba(44, 62, 80, 0.16);
-}
-.visualization h3 {
-    margin-top: 0;
-    color: #2d3e50;
-    font-size: 1.1em;
-    margin-bottom: 12px;
+    margin: 0;
 }
 
-.svg-image {
+figcaption {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
+
+img {
     width: 100%;
     height: auto;
     display: block;
-    max-height: 340px;
-    object-fit: contain;
-    border-radius: 6px;
-    background: #f8fafc;
-    box-shadow: 0 1px 4px rgba(44, 62, 80, 0.06);
+    border-radius: 2px;
 }
 
-@media (max-width: 700px) {
-    .writeup {
-        padding: 16px 8px 10px 12px;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
     }
-    .gallery {
+    
+    main {
+        padding: 1.5rem;
+    }
+    
+    .techniques-container {
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
 }
